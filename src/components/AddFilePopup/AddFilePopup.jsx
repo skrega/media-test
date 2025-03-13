@@ -9,6 +9,7 @@ import Button from '../common/Button/Button'
 import A from '../common/A';
 import BasicInput from '../common/BasicInput/BasicInput';
 import StepLine from '../common/StepLine/StepLine';
+import FileUploadZone from '../common/FileUploadZone/FileUploadZone';
 Modal.setAppElement('#root');
 
 const AddFilePopup = ({ isOpen, onClose, onNext }) => {
@@ -48,10 +49,11 @@ const AddFilePopup = ({ isOpen, onClose, onNext }) => {
             onRequestClose={onClose}
             contentLabel="Добавить файлы"
             className="modal absolute top-1/2 left-1/2 right-auto bottom-auto -translate-x-1/2 -translate-y-1/2 bg-bluePup
-                lg:max-w-[730px] md:max-w-[600px] max-w-[100%] w-[90%] rounded-lg "
+                lg:max-w-[730px] md:max-w-[600px] max-w-[100%] w-[90%] rounded-lg md:h-auto h-[688px] overflow-y-auto 
+                [@media(max-height:730px)_and_(max-width:767px)]:h-[90dvh]"
             overlayClassName="modal-overlay"
         >
-            <div className='flex justify-between items-center px-6 py-3 bg-blueLightPup rounded-lg'>
+            <div className='flex justify-between items-center px-6 py-3 bg-blueLightPup rounded-lg sticky top-0'>
                 <h2 className="text-base/[140%] flex items-center gap-2 font-semibold">
                     <PhotoFilmIcon />
                     Добавление медиа файлов
@@ -69,8 +71,8 @@ const AddFilePopup = ({ isOpen, onClose, onNext }) => {
                         <span>Файлы</span>
                     </div>
                     <div className='grid grid-cols-2 gap-5 mb-6'>
-                        <StepLine active/>
-                        <StepLine/>
+                        <StepLine active />
+                        <StepLine />
                     </div>
                     <div className='text-textColor'>
                         Перед загрузкой файлов ознакомьтесь с <A className='link' href='/'>Требованиями</A> к фото и видео
@@ -107,31 +109,16 @@ const AddFilePopup = ({ isOpen, onClose, onNext }) => {
                         </div>
                     </div>
                 </div>
-                <div
-                    className="file-zone p-6 text-center cursor-pointer mb-4  overflow-y-auto [@media(max-height:950px)]:h-[240px] h-[520px] border-[1px] border-dashed border-primary"
+                <FileUploadZone
                     onDrop={handleFileDrop}
                     onDragOver={handleDragOver}
                     onClick={() => document.getElementById('file-upload').click()}
-                >
-                    {/* border-[1px] border-dashed border-primary */}
-                    <div className='flex items-center justify-center flex-col text-center gap-4 h-full'>
-                        <PhotoFilmIcon className={'md:w-[125px] md:h-[100px] w-[100px] h-[75px]'} classNamePath={'fill-primary'} />
-                        <div>
-                            <div className='text-primary font-bold mb-1'>Файлы</div>
-                            <div className='text-textColor'>
-                                <span className='md:block hidden'>или перетащите их в эту область</span>
-                                <span className='md:hidden block'>Нажмите что бы загрузить</span>
-                            </div>
-                        </div>
-                    </div>
-                    <input
-                        id="file-upload"
-                        type="file"
-                        multiple
-                        className="hidden"
-                        onChange={handleFileUpload}
-                    />
-                </div>
+                    title="Файлы"
+                    descriptionDesktop="или перетащите их в эту область"
+                    descriptionMobile="Нажмите что бы загрузить"
+                    accept="image/*, video/*"
+                    multiple
+                />
                 <div className="md:flex justify-between gap-2 grid grid-cols-2">
                     <Button onClick={onClose} variant="outlined">Отменить</Button>
                     <Button onClick={handleNext} variant="contained">Далее</Button>
