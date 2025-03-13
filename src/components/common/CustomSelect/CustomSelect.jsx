@@ -43,7 +43,6 @@ const CustomSelect = ({
             document.removeEventListener('click', handleClickOutside);
         };
     }, []);
-    console.log(size  === 'small');
     
     return (
         <div ref={dropdownRef} className={`relative px-4 pt-[6px] pb-[6px] border border-blueLightPup rounded w-full bg-bluePup 
