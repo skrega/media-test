@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from "react-router-dom";
+import Board from "./layout/Board/Board";
+import MenuPanel from "./components/MenuPanel/MenuPanel";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <div className="grid xl:grid-cols-[220px_1fr]">
+          <MenuPanel />
+          <Board />
+        </div>
+      </BrowserRouter>
     </div>
   );
 }

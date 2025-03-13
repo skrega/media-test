@@ -1,13 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&display=swap');
+
+html,
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+	height: 100%;
+}
+
+
+body {
+  @apply bg-dark text-sm/[140%] text-white m-0 font-lato font-normal;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.modal-overlay{
+  @apply bg-black/50 inset-0 fixed px-4
 }
+.link{
+  @apply text-primary
+}
+
+.file-zone {
+  /* background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='8' ry='8' stroke='%23A121AFFF' stroke-width='5' stroke-dasharray='6%2c 14' stroke-dashoffset='30' stroke-linecap='square'/%3e%3c/svg%3e"); */
+  /* background-position:  0 0, 0 0, 100% 0, 0 100%;
+  background-size: 3px 100%, 100% 3px, 3px 100% , 100% 3px;
+  background-repeat: no-repeat;
+  background-image:
+  repeating-linear-gradient(0deg, #5E88D8, #5E88D8 30px, transparent 30px, transparent 36px),
+  repeating-linear-gradient(90deg, #5E88D8, #5E88D8 30px, transparent 30px, transparent 36px),
+  repeating-linear-gradient(180deg, #5E88D8, #5E88D8 30px, transparent 30px, transparent 36px),
+  repeating-linear-gradient(270deg, #5E88D8, #5E88D8 30px, transparent 30px, transparent 36px)
+; */
+  /* background-repeat: no-repeat;
+  background-size: 100% 100%; */
+  /* border: 1px solid ; */
+}
+
+
